@@ -1,0 +1,70 @@
+<footer id="footer" class="footer wrapper-lg">
+  <div class="footer__body block-sm border-top-gray">
+    <div class="wrapper-lg">
+      <div class="footer__columns flex flex-column flex-row-m fade-staggered">
+        <div class="flow w-100 w-30-m">
+          <a class="brand-logo" href="{{ site.BaseURL }}">
+            {{ if .Site.Data.site_settings.logo }}
+              <img src="{{ .Site.Data.site_settings.logo | absURL }}" alt="{{ .Site.Data.site_settings.business_name }} logo" class="img-responsive dim" width="275" height="125">
+            {{ else }}
+              <h1>{{ site.Title }}</h1>
+            {{ end }}
+          </a>
+          {{ if .Site.Data.global_partials.footer_short_description }}
+            <p>{{ .Site.Data.global_partials.footer_short_description }}</p>
+          {{ end }}
+        </div>
+        <div class="footer__services fade-staggered w-100 w-20-m">
+          <div class="p-relative flex flex-justify-between flex-column flow">
+            <h2 class="h6 no-margin">Contact Us</h2>
+            <div class="flow">
+              <div>
+                {{ .Site.Data.site_settings.address.street}}
+                <br>
+                {{ .Site.Data.site_settings.address.city}}, {{ .Site.Data.site_settings.address.state }} {{ .Site.Data.site_settings.address.zip }}
+                <br>
+              </div>
+              <div>
+                {{ .Site.Data.site_settings.phone }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class= "w-100 w-20-m">
+          <div class="p-relative flex flex-center flex-justify-between">
+            <h2 class="h6 no-margin">Navigate</h2>
+          </div>
+          <div class="footer__menu-container">
+            <ul class="footer__menu">
+              {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL }}" class="transform-x-8">{{ .Name }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+        <div class="w-100 w-30-m">
+          <div class="p-relative flex flex-center flex-justify-between">
+            <h2 class="h6 no-margin">Connect With Us</h2>
+          </div>
+          <div class="footer__menu-container">
+            {{ partial "social-media" . }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom wrapper-lg">
+    <div class="footer__bottom-wrapper border-top-gray flex flex-column flex-row-m flex-justify-between flex-center">
+      <div class="copyright flex flex-column flex-row-m">
+        <p class="copyright__date">© {{ dateFormat "2006" now }} {{ .Site.Data.site_settings.business_name }}. All Rights Reserved.</p>
+        <ul class="flex">
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/sitemap/">Sitemap</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+        <div class="credits"><a href="https://insightcreative.com" target="_blank">Website by Insight Creative, Inc.</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+{{ partial "scripts" . }}

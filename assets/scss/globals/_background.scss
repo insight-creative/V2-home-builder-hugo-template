@@ -1,0 +1,53 @@
+.bg-primary {
+  background-color: $primary-color;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.bg-gray {
+  background-color: $light-gray;
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+.bg-accent {
+  background-color: $accent-color;
+}
+
+.bg-blue-swoosh {
+  background-color: $primary-color;
+  background-image: url("/uploads/blue-generic-swoosh-background.svg");
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.bg-angled {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: calc(-4% - -1px);
+    left: 0;
+    content: '';
+    height: 4%;
+    width: 100%;
+    background-color: $light-gray;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+  }
+
+  &::after {
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    content: '';
+    height: 53px;
+    width: 100%;
+    background-color: $light-gray;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+}
